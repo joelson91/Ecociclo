@@ -1,0 +1,119 @@
+#:import hex kivy.utils.get_color_from_hex
+
+# --- CORES PREDEFINIDAS --- #
+#:set text_color hex("#3e3f3a")
+#:set text_dark_color hex("#ffffff")
+#:set text_head_dark_color hex("#dfd7ca")
+#:set primary_color hex("#325d88")
+#:set primary_active_color hex("#284a6d")
+#:set secondary_color hex("#8e8c84")
+
+
+# --- LAYOUTS --- #
+<VBoxContainer@BoxLayout>:
+    orientation: "vertical"
+    spacing: dp(16)
+    padding: dp(16)
+
+
+<ActionHeader@BoxLayout>:
+    orientation: "horizontal"
+    size_hint_y: None
+    height: dp(56)
+    spacing: dp(16)
+    padding: [dp(16), dp(0), dp(16), dp(0)]
+
+
+# --- TEXTOS --- #
+<CLabel@Label>:
+    color: text_color
+    text_size: self.width, None
+    size_hint_y: None
+    height: self.texture_size[1]
+    halign: "left"
+    valign: "top"
+
+<TextHeadline@CLabel>:
+    font_size: "32sp"
+    bold: True
+
+<TextBody@CLabel>:
+    font_size: "16sp"
+    bold: False
+
+
+# --- BOTÕES --- #
+<CButton@Button>:
+    size_hint_y: None
+    height: dp(48)
+    font_size: "16sp"
+    bold: True
+    background_color: 0, 0, 0, 0
+    background_normal: ""
+
+<PrimaryButton@CButton>:
+    canvas.before:
+        Color:
+            rgba: primary_color if self.state == "normal" else primary_active_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(10)]
+
+<OutlineButton@CButton>:
+    color: (1, 1, 1, 1) if self.state == 'down' else primary_color
+    canvas.before:
+        Color:
+            rgba: primary_color if self.state == 'down' else (0, 0, 0, 0)
+
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(10)]
+
+        Color:
+            rgba: primary_color
+
+        Line:
+            width: dp(1)
+            rounded_rectangle: (self.x, self.y, self.width, self.height, dp(10))
+
+<BackButton@Button>:
+    background_color: 0, 0, 0, 0
+    size_hint: None, None
+    size: dp(56), dp(56)
+    canvas.after:
+        Color:
+            rgba: primary_color if self.state == 'normal' else primary_active_color
+        Line:
+            points:
+                [self.x + dp(15), self.center_y + dp(10),
+                self.x + dp(5), self.center_y,
+                self.x + dp(15), self.center_y - dp(10)]
+            width: dp(2.5)
+
+
+# --- FORMULÁRIOS --- #
+<CInput@TextInput>:
+    # Configurações de tamanho e comportamento
+    size_hint_y: None
+    height: dp(48)
+    multiline: False
+    write_tab: False
+
+    # Remove os fundos padrão para usar o desenho customizado
+    background_normal: ''
+    background_active: ''
+    background_color: 0, 0, 0, 0
+
+    foreground_color: text_color
+    cursor_color: text_color
+
+    padding: [dp(15), (self.height - self.line_height) / 2]
+
+    canvas.after:
+        Color:
+            rgba: primary_color if self.focus else text_color
+        Line:
+            width: dp(1) if self.focus else dp(0.5)
+            rounded_rectangle: (self.x, self.y, self.width, self.height, dp(12))

@@ -1,0 +1,109 @@
+<AccountScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        # Simula um action header
+        Widget:
+            size_hint_y: None
+            height: dp(56)
+
+        VBoxContainer:
+            TextHeadline:
+                text: "Ecociclo"
+
+            TextBody:
+                text: "Um aplicativo sustentável"
+
+            Widget
+
+            PrimaryButton:
+                text: "Entrar"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "Login"
+
+            OutlineButton:
+                text: "Criar conta"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "Register"
+
+
+
+<LoginScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        # Simula um action header
+        ActionHeader:
+            BackButton:
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "Account"
+
+        VBoxContainer:
+            TextHeadline:
+                text: "Entrar"
+
+            TextBody:
+                text: "Informe seus dados"
+
+            CInput:
+                id: login_user_name
+                hint_text: "Usuário"
+                on_text_validate: user_password.focus = True
+
+            CInput:
+                id: login_user_password
+                hint_text: "Senha"
+                password: True
+                on_text_validate: user_password_repeat.focus = True
+
+            Widget
+
+            PrimaryButton:
+                text: "Entrar"
+                on_release:
+                    root.fazer_login()
+
+
+<RegisterScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        # Simula um action header
+        ActionHeader:
+            BackButton:
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "Account"
+
+        VBoxContainer:
+            TextHeadline:
+                text: "Criar conta"
+
+            TextBody:
+                text: "Informe seus dados"
+
+            CInput:
+                id: register_user_name
+                hint_text: "Usuário"
+                on_text_validate: user_password.focus = True
+
+            CInput:
+                id: register_user_password
+                hint_text: "Senha"
+                password: True
+                on_text_validate: user_password_repeat.focus = True
+
+            CInput:
+                id: register_user_password_repeat
+                hint_text: "Repetir senha"
+                password: True
+
+            Widget
+
+            PrimaryButton:
+                text: "Criar conta"
+                on_release:
+                    root.fazer_cadastro()
