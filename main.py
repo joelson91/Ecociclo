@@ -3,8 +3,9 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from screens.account import AccountScreen, LoginScreen, RegisterScreen
+from kivy.utils import get_color_from_hex
 
-Window.clearcolor = (1, 1, 1, 1)
+Window.clearcolor = get_color_from_hex("f0e8d8")
 Builder.load_file("kv/styles.kv")
 
 
