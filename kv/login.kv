@@ -1,0 +1,31 @@
+<LoginScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        Image:
+            source: "media/images/farm.jpg"
+            size_hint_y: None
+            height: dp(100)
+            allow_stretch: True
+            keep_ratio: False   # ou True para manter aspecto
+
+
+
+        VBoxContainer:
+            TextHeadline:
+                text: "Boas vindas ao Ecociclo"
+
+            TextBody:
+                text: "Digite o código da comunidade"
+
+            CInput:
+                id: community_name
+                hint_text: "Ex.: CA01"
+
+            Widget
+
+            PrimaryButton:
+                text: "Entrar"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "Home"
