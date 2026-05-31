@@ -21,7 +21,7 @@ LabelBase.register(
     fn_bold='media/fonts/PlusJakartaSans-Bold.ttf'  # Caminho para a versão negrito (opcional)
 )
 
-Window.clearcolor = get_color_from_hex("f0e8d8")
+Window.clearcolor = get_color_from_hex("fbfcfb")
 Builder.load_file("kv/styles.kv")
 
 
