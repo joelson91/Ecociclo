@@ -7,29 +7,34 @@
             height: dp(56)
 
         VBoxContainer:
-            TextHeadline:
-                text: "Comunidade Cupiúba"
+            TitleContainer:
+                TextHeadline:
+                    text: "Comunidade Cupiúba"
 
-            TextBody:
-                text: "Castanhal"
+                TextBody:
+                    text: "Castanhal"
 
-            CardButton:
-                texto: "Aprender"
-                icone: "media/icons/book.png"
-                on_release:
-                    root.manager.transition.direction = "left"
-                    root.manager.current = "Learn"
+            GridLayout:
+                cols: 2
+                spacing: dp(16)
 
-            CardButton:
-                texto: "Metas"
-                icone: "media/icons/target.png"
+                GridButton:
+                    texto: "Aprender"
+                    icone: "media/icons/book.png"
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Learn"
 
-            CardButton:
-                texto: "Notícias"
-                icone: "media/icons/news.png"
+                GridButton:
+                    texto: "Metas"
+                    icone: "media/icons/target.png"
 
-            CardButton:
-                texto: "Sobre a comunidade"
-                icone: "media/icons/info.png"
+                GridButton:
+                    texto: "Notícias"
+                    icone: "media/icons/news.png"
+
+                GridButton:
+                    texto: "Sobre"
+                    icone: "media/icons/info.png"
 
             Widget

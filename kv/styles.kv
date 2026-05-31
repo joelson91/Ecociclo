@@ -15,6 +15,13 @@
     spacing: dp(16)
     padding: dp(16)
 
+<TitleContainer@BoxLayout>:
+    orientation: "vertical"
+    spacing: dp(8)
+    padding: dp(0)
+    size_hint_y: None
+    height: self.minimum_height
+
 <ActionHeader@BoxLayout>:
     orientation: "horizontal"
     size_hint_y: None
@@ -116,6 +123,53 @@
             halign: "left"
             valign: "middle"
 
+<GridButton@Button>:
+    texto: "Botão"
+    icone: ""
+    size_hint_y: None
+    height: container.minimum_height
+    font_size: "16sp"
+    bold: True
+    background_color: 0, 0, 0, 0
+    background_normal: ""
+    canvas.before:
+        Color:
+            rgba: card_color if self.state == "normal" else card_active_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(16)]
+
+    BoxLayout:
+        id: container
+        pos: root.pos
+        width: root.width
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: "vertical"
+        padding: dp(16)
+        spacing: dp(8)
+
+        Image:
+            source: root.icone
+            size_hint: (None, None)
+            size: ('24dp', '24dp')
+            pos_hint: {'center_y': 0.5}
+            allow_stretch: True
+
+        Label:
+            font_name: 'body_font'
+            text: root.texto
+            bold: True
+            color: text_color_dark
+            font_size: '16sp'
+            size_hint_y: None
+            text_size: self.width, None
+            height: self.texture_size[1]
+            pos_hint: {'center_y': 0.5}
+            halign: "left"
+            valign: "middle"
+
 <LockCardButton@Button>:
     texto: "Botão"
     icone: ""
@@ -189,14 +243,14 @@
     background_active: ''
     background_color: 0, 0, 0, 0
 
-    foreground_color: text_color_light
-    cursor_color: text_color_light
+    foreground_color: primary_color
+    cursor_color: primary_color
 
     padding: [dp(15), (self.height - self.line_height) / 2]
 
     canvas.after:
         Color:
-            rgba: primary_color if self.focus else text_color_light
+            rgba: primary_color if self.focus else primary_color
         Line:
             width: dp(1) if self.focus else dp(0.5)
             rounded_rectangle: (self.x, self.y, self.width, self.height, dp(12))
