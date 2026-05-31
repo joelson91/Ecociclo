@@ -254,3 +254,27 @@
         Line:
             width: dp(1) if self.focus else dp(0.5)
             rounded_rectangle: (self.x, self.y, self.width, self.height, dp(12))
+
+
+# --- BARRA DE PROGRESSO --- #
+<BarraProgressoLimpa@Widget>:
+    max: 100
+    value: 0
+
+    size_hint_y: None
+    height: dp(16)
+    canvas.before:
+        # Cor de fundo
+        Color:
+            rgba: primary_color
+        Line:
+            width: dp(0.5)
+            rounded_rectangle: [self.x, self.y, self.width, self.height, self.height / 2]
+
+        # Preenchimento
+        Color:
+            rgba: primary_color
+        RoundedRectangle:
+            pos: self.pos
+            size: (self.width * (self.value / float(self.max)) if self.max > 0 else 0, self.height)
+            radius: [self.height / 2]
