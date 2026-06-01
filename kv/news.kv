@@ -1,4 +1,4 @@
-<LearnScreen>:
+<NewsScreen>:
     BoxLayout:
         orientation: "vertical"
 
@@ -11,36 +11,18 @@
         VBoxContainer:
             TitleContainer:
                 TextHeadline:
-                    text: "Aprender"
+                    text: "Notícias"
 
                 TextBody:
-                    text: "Módulos sobre educação ambiental"
-
-            # 1. DECLARAÇÃO DA BARRA DE PROGRESSO
-            TitleContainer:
-                TextBody:
-                    text: "Seu progresso"
-                    bold: True
-
-                BarraProgressoLimpa:
-                    id: minha_barra
-                    max: 100
-                    value: 25
+                    text: "Notícias ambientais e avisos gerais"
 
             CardButton:
-                texto: "Lixo Orgânico"
+                texto: "Criar composteira local"
                 icone: "media/icons/eco.png"
-                on_release:
-                    root.manager.transition.direction = "left"
-                    root.manager.current = "Content"
 
-            LockCardButton:
-                texto: "Recicláveis"
-                icone: "media/icons/lock.png"
-
-            LockCardButton:
-                texto: "Pilhas e eletrônicos"
-                icone: "media/icons/lock.png"
+            CardButton:
+                texto: "Criar ponto de coleta de plásticos"
+                icone: "media/icons/eco.png"
 
             Widget
 

@@ -1,0 +1,37 @@
+<AboutScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        ActionHeader:
+            BackButton:
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "Home"
+
+        ScrollView:
+            do_scroll_x: False  # Desativa a rolagem horizontal
+            do_scroll_y: True   # Ativa a rolagem vertical
+
+            VBoxContainer:
+                TitleContainer:
+                    TextHeadline:
+                        text: "Sobre a comunidade"
+
+                    TextBody:
+                        text: "História, atividades e mais..."
+
+                # Título
+                TextHeadline:
+
+                    text: "Comunidade Cupiúba"
+
+                # Corpo de texto
+                TextBody:
+                    font_size: "32sp"
+                    bold: True
+                    text: "História"
+
+                TextBody:
+                    text: "O assentamento surgiu a partir da ocupação da antiga fazenda Cachoeira, em meados da década de 1990, quando trabalhadores rurais sem terra, pressionados pelo desemprego e pela exploração predatória da madeira, decidiram organizar-se e reivindicar o direito de acesso à terra."
+
+                Widget

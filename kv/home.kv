@@ -14,17 +14,6 @@
                 TextBody:
                     text: "Castanhal"
 
-            # 1. DECLARAÇÃO DA BARRA DE PROGRESSO
-            TitleContainer:
-                TextBody:
-                    text: "Seu progresso"
-                    bold: True
-
-                BarraProgressoLimpa:
-                    id: minha_barra
-                    max: 100
-                    value: 25
-
             GridLayout:
                 cols: 2
                 spacing: dp(16)
@@ -39,13 +28,22 @@
                 GridButton:
                     texto: "Metas"
                     icone: "media/icons/target.png"
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Goal"
 
                 GridButton:
                     texto: "Notícias"
                     icone: "media/icons/news.png"
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "News"
 
                 GridButton:
                     texto: "Sobre"
                     icone: "media/icons/info.png"
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "About"
 
             Widget

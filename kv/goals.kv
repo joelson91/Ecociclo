@@ -1,0 +1,27 @@
+<GoalScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        ActionHeader:
+            BackButton:
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "Home"
+
+        VBoxContainer:
+            TitleContainer:
+                TextHeadline:
+                    text: "Metas"
+
+                TextBody:
+                    text: "Metas para toda comunidade"
+
+            CardButton:
+                texto: "Criar composteira local"
+                icone: "media/icons/eco.png"
+
+            CardButton:
+                texto: "Criar ponto de coleta de plásticos"
+                icone: "media/icons/eco.png"
+
+            Widget
