@@ -76,6 +76,21 @@
             size: self.size
             radius: [dp(16)]
 
+<BackButton@Button>:
+    background_color: 0, 0, 0, 0
+    size_hint: None, None
+    size: dp(56), dp(56)
+    canvas.after:
+        Color:
+            rgba: primary_color if self.state == 'normal' else primary_active_color
+        Line:
+            points:
+                [self.x + dp(15), self.center_y + dp(10),
+                self.x + dp(5), self.center_y,
+                self.x + dp(15), self.center_y - dp(10)]
+            width: dp(2.5)
+
+# --- CARDS --- #
 <CardButton@Button>:
     texto: "Botão"
     icone: ""
@@ -216,19 +231,74 @@
             halign: "left"
             valign: "middle"
 
-<BackButton@Button>:
+# News Button
+<NewsButton@Button>:
+    fonte: "Fonte"
+    titulo: "Conteúdo"
+    icone: ""
+    size_hint_y: None
+    height: container.minimum_height
+    font_size: "16sp"
+    bold: True
     background_color: 0, 0, 0, 0
-    size_hint: None, None
-    size: dp(56), dp(56)
-    canvas.after:
+    background_normal: ""
+    canvas.before:
         Color:
-            rgba: primary_color if self.state == 'normal' else primary_active_color
-        Line:
-            points:
-                [self.x + dp(15), self.center_y + dp(10),
-                self.x + dp(5), self.center_y,
-                self.x + dp(15), self.center_y - dp(10)]
-            width: dp(2.5)
+            rgba: card_color if self.state == "normal" else card_active_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [dp(16)]
+
+    BoxLayout:
+        id: container
+        pos: root.pos
+        width: root.width
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: "horizontal"
+        padding: dp(16)
+        spacing: dp(16)
+
+        Image:
+            source: root.icone
+            size_hint: (None, None)
+            size: ('24dp', '24dp')
+            pos_hint: {'center_y': 0.5}
+            allow_stretch: True
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            # ===========================
+
+            # Título da notícia
+            Label:
+                font_name: 'body_font'
+                text: root.fonte
+                bold: True
+                color: text_color_dark
+                font_size: '16sp'
+                size_hint_y: None
+                text_size: self.width, None
+                height: self.texture_size[1]
+                halign: "left"
+                valign: "middle"
+
+            # Conteúdo da notícia
+            Label:
+                font_name: 'body_font'
+                text: root.titulo
+                bold: False
+                color: text_color_dark
+                font_size: '16sp'
+                size_hint_y: None
+                text_size: self.width, None
+                height: self.texture_size[1]
+                halign: "left"
+                valign: "middle"
+
 
 # --- FORMULÁRIOS --- #
 <CInput@TextInput>:
