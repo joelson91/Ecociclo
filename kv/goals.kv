@@ -8,20 +8,24 @@
                     root.manager.transition.direction = "right"
                     root.manager.current = "Home"
 
-        VBoxContainer:
-            TitleContainer:
-                TextHeadline:
-                    text: "Metas"
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-                TextBody:
-                    text: "Metas para toda comunidade"
+            VBoxContainer:
+                TitleContainer:
+                    TextHeadline:
+                        text: "Metas"
 
-            CardButton:
-                texto: "Criar composteira local"
-                icone: "media/icons/eco.png"
+                    TextBody:
+                        text: "Metas para toda comunidade"
 
-            CardButton:
-                texto: "Criar ponto de coleta de plásticos"
-                icone: "media/icons/eco.png"
+                CardButton:
+                    texto: "Criar composteira local"
+                    icone: "media/icons/eco.png"
 
-            Widget
+                CardButton:
+                    texto: "Criar ponto de coleta de plásticos"
+                    icone: "media/icons/eco.png"
+
+                Widget

@@ -8,41 +8,45 @@
                     root.manager.transition.direction = "right"
                     root.manager.current = "Home"
 
-        VBoxContainer:
-            TitleContainer:
-                TextHeadline:
-                    text: "Aprender"
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-                TextBody:
-                    text: "Módulos sobre educação ambiental"
+            VBoxContainer:
+                TitleContainer:
+                    TextHeadline:
+                        text: "Aprender"
 
-            # 1. DECLARAÇÃO DA BARRA DE PROGRESSO
-            TitleContainer:
-                TextBody:
-                    text: "Seu progresso"
-                    bold: True
+                    TextBody:
+                        text: "Módulos sobre educação ambiental"
 
-                BarraProgressoLimpa:
-                    id: minha_barra
-                    max: 100
-                    value: 25
+                # 1. DECLARAÇÃO DA BARRA DE PROGRESSO
+                TitleContainer:
+                    TextBody:
+                        text: "Seu progresso"
+                        bold: True
 
-            CardButton:
-                texto: "Lixo Orgânico"
-                icone: "media/icons/eco.png"
-                on_release:
-                    root.manager.transition.direction = "left"
-                    root.manager.current = "Content"
+                    BarraProgressoLimpa:
+                        id: minha_barra
+                        max: 100
+                        value: 25
 
-            LockCardButton:
-                texto: "Recicláveis"
-                icone: "media/icons/lock.png"
+                CardButton:
+                    texto: "Lixo Orgânico"
+                    icone: "media/icons/eco.png"
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "Content"
 
-            LockCardButton:
-                texto: "Pilhas e eletrônicos"
-                icone: "media/icons/lock.png"
+                LockCardButton:
+                    texto: "Recicláveis"
+                    icone: "media/icons/lock.png"
 
-            Widget
+                LockCardButton:
+                    texto: "Pilhas e eletrônicos"
+                    icone: "media/icons/lock.png"
+
+                Widget
 
 <ContentScreen>:
     BoxLayout:
@@ -55,8 +59,8 @@
                     root.manager.current = "Learn"
 
         ScrollView:
-            do_scroll_x: False  # Desativa a rolagem horizontal
-            do_scroll_y: True   # Ativa a rolagem vertical
+            do_scroll_x: False
+            do_scroll_y: True
 
             VBoxContainer:
                 size_hint_y: None
