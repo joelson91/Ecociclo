@@ -6,6 +6,9 @@ from kivy.utils import get_color_from_hex
 from screens.login import LoginScreen
 from screens.home import HomeScreen
 from screens.learn import LearnScreen, ContentScreen
+from screens.goals import GoalScreen
+from screens.news import NewsScreen
+from screens.about import AboutScreen
 from kivy.core.text import LabelBase
 
 # Registar a fonte com um nome identificador (ex: 'MinhaFonte')
@@ -32,6 +35,9 @@ class MainApp(App):
         sm.add_widget(HomeScreen(name="Home"))
         sm.add_widget(LearnScreen(name="Learn"))
         sm.add_widget(ContentScreen(name="Content"))
+        sm.add_widget(GoalScreen(name="Goal"))
+        sm.add_widget(NewsScreen(name="News"))
+        sm.add_widget(AboutScreen(name="About"))
         return sm
 
 
