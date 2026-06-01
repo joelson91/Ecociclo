@@ -75,10 +75,13 @@
                 BoxLayout:
                     orientation: "vertical"
                     size_hint_y: None
-                    height: dp(200)
+                    height: self.minimum_height
+
                     Image:
                         source: "media/images/organico.jpg"
-                        size_hint: (1,1)
+                        size_hint_y: None
+                        fit_mode: "contain"
+                        height: self.width / self.image_ratio if self.image_ratio > 0 else dp(200)
 
                 TextBody:
                     text: "Exemplo: Na cozinha, reúna cascas de frutas, casos de vegetais e restos de café em um balde com tampa; a cada poucos dias, balance ou revolva o material para aerar e acelerar a decomposição. Depois de algumas semanas a meses, o material se transforma em terra escura e fértil que você pode usar em vasos, canteiros ou hortas, reduzindo a necessidade de fertilizantes químicos."
