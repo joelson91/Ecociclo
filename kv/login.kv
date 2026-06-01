@@ -2,20 +2,21 @@
     BoxLayout:
         orientation: "vertical"
 
-        Image:
-            source: "media/images/farm.jpg"
-            size_hint_y: None
-            height: dp(100)
-            allow_stretch: True
-            keep_ratio: False   # ou True para manter aspecto
-
-
-
         VBoxContainer:
+            Image:
+                source: "media/images/splash.png"
+                size_hint_y: None
+                height: dp(200)
+                allow_stretch: True
+                keep_ratio: True
+
             TextHeadline:
-                text: "Boas vindas ao Ecociclo"
+                font_size: "40sp"
+                halign: "center"
+                text: "Ecociclo"
 
             TextBody:
+                halign: "center"
                 text: "Digite o código da comunidade"
 
             CInput:
