@@ -9,7 +9,7 @@ O Ecociclo é um projeto voltado para a sustentabilidade, oferecendo aos usuári
 ## Instalação e Execução
 1. Clone este repositório para o seu ambiente local.
 ```bash
-git clone https://github.com/joelson91/Ecociclo.git
+git clone "https://github.com/joelson91/Ecociclo.git"
 ```
 
 2. Crie e ative um ambiente virtual (recomendado).
